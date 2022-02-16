@@ -1,6 +1,6 @@
-[![CircleCI](https://circleci.com/gh/nie-ine/inseri/tree/devel.svg?style=svg)](https://circleci.com/gh/nie-ine/inseri/tree/devel)
+[![CircleCI](https://circleci.com/gh/inseri-swiss/inseri/tree/devel.svg?style=svg)](https://circleci.com/gh/inseri-swiss/inseri/tree/devel)
 
-Our signature presentation for you: [https://nie-ine.github.io/inseri/](https://nie-ine.github.io/inseri/) 
+Our signature presentation for you: [https://inseri.swiss/](https://inseri.swiss/) 
 
 ------
 
@@ -18,12 +18,12 @@ Our signature presentation for you: [https://nie-ine.github.io/inseri/](https://
 
 ------
 
-#### [User guide](https://github.com/nie-ine/inseri/tree/devel/Tutorials/Your%20scientific%20publication%20A-Z)
+#### [User guide](https://github.com/inseri-swiss/inseri/tree/devel/Tutorials/Your%20scientific%20publication%20A-Z)
 
 -----
 
 ## Start inseri using docker-compose
-  - ``git clone https://github.com/nie-ine/inseri.git``
+  - ``git clone https://github.com/inseri-swiss/inseri.git``
   - create an `.env.prod` file (similiar to `./backend/.env.dev`) as follows:
 ```
 MAIL_EMAIL_ADDRESS=""
@@ -42,7 +42,7 @@ SALT="my_secret_secret"
   - start inseri ```docker-compose -f docker-compose.inseri.yml up -d```
 
 ## Prepare for development
-  - ``git clone https://github.com/nie-ine/inseri.git``
+  - ``git clone https://github.com/inseri-swiss/inseri.git``
   - ``cd inseri``
   - run MongoDb locally:
     - `docker run -v /my/own/datadir:/data/db --name some-mongo -p 27017:27017 -d mongo:4.4`
@@ -63,7 +63,7 @@ To build individually, change the directory to either backend or frontend and th
 ```docker build -t my-image .```
 
 ## Backup
-a detailed guide for backup can be found in [wiki](https://github.com/nie-ine/inseri/wiki/Mongodb-backup-instruction)
+a detailed guide for backup can be found in [wiki](https://github.com/inseri-swiss/inseri/wiki/Mongodb-backup-instruction)
 
 ## Generate documentation
 

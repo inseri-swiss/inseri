@@ -4,6 +4,7 @@ import { AuthData } from './auth-data.model';
 import { Observable, Subject } from 'rxjs';
 import {Router} from '@angular/router';
 import { environment } from '../../../../environments/environment';
+import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -55,7 +56,7 @@ export class AuthService {
         userId: string
       }
       >(`${AuthService.API_BASE_URL_USER}/${userId}`, user)
-      .map(response => {
+      .pipe(map(response => {
         const token = response.token;
         this.token = token;
         const expiresInDuration = response.expiresIn;
@@ -63,7 +64,7 @@ export class AuthService {
         const expirationDate = new Date (now.getTime() + expiresInDuration * 1000);
         this.saveAuthData(token, expirationDate, response.firstName, response.userId);
         return response;
-      });
+      }));
   }
 
   updatePwd(userId: string, oldPwd: string, newPwd: string): Observable<any> {

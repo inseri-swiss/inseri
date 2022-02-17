@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {MatDialogRef} from '@angular/material';
+import {MatDialogRef} from '@angular/material/dialog';
 import {SynopsisObjectSerializerService} from '../synopsis-object-serializer.service';
 import {FormControl} from '@angular/forms';
 

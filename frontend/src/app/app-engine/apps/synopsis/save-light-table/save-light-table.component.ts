@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {ErrorStateMatcher, MatDialogRef} from '@angular/material';
+import {MatDialogRef} from '@angular/material/dialog';
+import { ErrorStateMatcher } from '@angular/material/core';
 import {AbstractControl, FormControl, FormGroupDirective, NgForm, ValidatorFn, Validators} from '@angular/forms';
 import {SynopsisObjectSerializerService} from '../synopsis-object-serializer.service';
 

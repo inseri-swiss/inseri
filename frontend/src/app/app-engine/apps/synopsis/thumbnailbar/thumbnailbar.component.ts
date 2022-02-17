@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {SynopsisObjectData, SynopsisObjectType} from '../synopsis-object-data';
 import {SynopsisObjectStorageService} from '../synopsis-object-storage.service';
-import {MatDialog} from '@angular/material';
+import {MatDialog} from '@angular/material/dialog';
 import {RemoveObjectsByIdComponent} from '../remove-objects-by-id/remove-objects-by-id.component';
 
 @Component({

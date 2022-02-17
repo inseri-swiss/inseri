@@ -1,7 +1,8 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {SaveLightTableComponent} from './save-light-table.component';
-import {MatDialogRef, MatInputModule} from '@angular/material';
+import {MatDialogRef} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SynopsisObjectSerializerService} from '../synopsis-object-serializer.service';
 import {SynopsisObjectSerializerServiceStub} from '../stubs/synopsis-object-serializer-service-stub';

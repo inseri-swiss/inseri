@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {MatDialogRef} from '@angular/material';
+import {MatDialogRef} from '@angular/material/dialog';
 import {SynopsisObjectSerializerService} from '../synopsis-object-serializer.service';
 import {SynopsisObjectData} from '../synopsis-object-data';
 import {LightTableLayoutService} from '../light-table-layout.service';

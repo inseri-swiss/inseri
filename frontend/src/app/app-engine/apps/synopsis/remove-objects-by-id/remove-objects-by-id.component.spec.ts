@@ -1,7 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {RemoveObjectsByIdComponent} from './remove-objects-by-id.component';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {SynopsisObjectModifierService} from '../synopsis-object-modifier.service';
 
 describe('RemoveObjectsByIdComponent', () => {

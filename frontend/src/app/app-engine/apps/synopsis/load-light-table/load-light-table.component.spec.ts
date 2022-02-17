@@ -1,7 +1,8 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {LoadLightTableComponent} from './load-light-table.component';
-import {MatDialogRef, MatSelectModule} from '@angular/material';
+import {MatDialogRef} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SynopsisObjectSerializerServiceStub} from '../stubs/synopsis-object-serializer-service-stub';
 import {SynopsisObjectSerializerService} from '../synopsis-object-serializer.service';

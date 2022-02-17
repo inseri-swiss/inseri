@@ -1,15 +1,14 @@
 {
-  "extends": "../tsconfig.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../out-tsc/app",
-    "baseUrl": "./",
+    "outDir": "./out-tsc/app",
     "types": ["node"],
     "resolveJsonModule": true,
     "esModuleInterop": true
   },
   "files": [
-    "main.ts",
-    "polyfills.ts"
+    "src/main.ts",
+    "src/polyfills.ts"
   ],
   "include": [
     "src/**/*.d.ts"

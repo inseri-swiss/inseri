@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "types": [],
+    "baseUrl": "./",
     "downlevelIteration": true,
     "module": "es2020",
     "outDir": "./dist/out-tsc",
@@ -27,7 +27,7 @@
         "./node_modules/path-browserify"
       ],
       "jszip": [
-        "../node_modules/jszip/dist/jszip.min.js"
+        "./node_modules/jszip/dist/jszip.min.js"
       ]
     }
   }

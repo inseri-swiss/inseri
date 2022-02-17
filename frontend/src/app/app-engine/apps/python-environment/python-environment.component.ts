@@ -1,11 +1,12 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
+import { of, Observable } from 'rxjs';
 import {environment} from '../../../../environments/environment';
 import {GenerateHashService} from '../../../user-action-engine/other/generateHash.service';
 import {MicroserviceService} from '../../../user-action-engine/mongodb/microservice/microservice.service';
 import {FileService} from '../../../user-action-engine/file/file.service';
 import 'ace-builds/src-noconflict/mode-python';
+import { materialize, dematerialize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-python-environment',
@@ -60,18 +61,18 @@ export class PythonEnvironmentComponent implements OnChanges, HttpInterceptor {
       pythonEnvironmentSet.add( pythonEnvironmentInstances[ 'hash' ] );
     }
 
-    return Observable.of(null).mergeMap(() => {
+    return of(null).mergeMap(() => {
       if ( pythonEnvironmentSet.has( request.url ) ) {
         // console.log( 'interceptor is triggered' );
         const body = pythonEnvironmentInstances;
         // localStorage.removeItem( this.serivceId );
-        return Observable.of(new HttpResponse({ status: 200, body: JSON.parse( localStorage.getItem( this.serivceId ) ).output } ));
+        return of(new HttpResponse({ status: 200, body: JSON.parse( localStorage.getItem( this.serivceId ) ).output } ));
       } else {
         return next.handle(request);
       }
     })
-      .materialize()
-      .dematerialize();
+    .pipe(materialize())
+    .pipe(dematerialize());
   }
 
   submitToMicroservice() {

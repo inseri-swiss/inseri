@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
-import { ExampleComponent } from 'nie-ine';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -9,7 +8,7 @@ describe('HomeComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent, ExampleComponent ]
+      declarations: [ HomeComponent ]
     })
     .compileComponents();
   }));

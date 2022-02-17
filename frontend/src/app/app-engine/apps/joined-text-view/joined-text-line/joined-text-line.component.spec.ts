@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TextLineComponent } from './text-line.component';
+import { JoinedTextLineComponent } from './joined-text-line.component';
 
 describe('TextLineComponent', () => {
-  let component: TextLineComponent;
-  let fixture: ComponentFixture<TextLineComponent>;
+  let component: JoinedTextLineComponent;
+  let fixture: ComponentFixture<JoinedTextLineComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TextLineComponent ]
+      declarations: [ JoinedTextLineComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TextLineComponent);
+    fixture = TestBed.createComponent(JoinedTextLineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShareLightTableComponent } from './share-light-table.component';
-import {MatDialogRef} from '@angular/material';
+import { MatDialogRef } from '@angular/material/dialog';
 import {SynopsisObjectSerializerService} from '../synopsis-object-serializer.service';
 import {SynopsisObjectSerializerServiceStub} from '../stubs/synopsis-object-serializer-service-stub';
 import {LightTableLayoutService} from '../light-table-layout.service';

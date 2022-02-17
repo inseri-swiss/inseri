@@ -4,7 +4,7 @@ import {SynopsisObjectData} from '../synopsis-object-data';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import {map, startWith} from 'rxjs/operators';
-import {MatDialogRef} from '@angular/material';
+import {MatDialogRef} from '@angular/material/dialog';
 import {SynopsisObjectStorageService} from '../synopsis-object-storage.service';
 
 @Component({

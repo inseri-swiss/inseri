@@ -4,7 +4,7 @@ import {ThumbnailbarComponent} from './thumbnailbar.component';
 import {DraggableStubDirective} from '../stubs/directive-stubs';
 import {SynopsisObjectStorageService} from '../synopsis-object-storage.service';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
-import {MatDialogModule} from '@angular/material';
+import {MatDialogModule} from '@angular/material/dialog';
 
 describe('ThumbnailbarComponent', () => {
   let component: ThumbnailbarComponent;

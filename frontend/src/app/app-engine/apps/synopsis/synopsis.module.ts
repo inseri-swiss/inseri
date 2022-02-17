@@ -18,7 +18,7 @@ import {SynopsisObjectSelectorService} from './synopsis-object-selector.service'
 import {ModifiableDirective} from './modifiable.directive';
 import {SynopsisObjectManagerComponent} from './synopsis-object-manager/synopsis-object-manager.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material';
+import {MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
 import {SaveLightTableComponent} from './save-light-table/save-light-table.component';
 import {LoadLightTableComponent} from './load-light-table/load-light-table.component';
 import {SynopsisObjectSerializerService} from './synopsis-object-serializer.service';

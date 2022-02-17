@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TextLineMarginComponent } from './text-line-margin.component';
+import { JoinedTextMarginComponent } from './joined-text-margin.component';
 
-describe('TextLineMarginComponent', () => {
-  let component: TextLineMarginComponent;
-  let fixture: ComponentFixture<TextLineMarginComponent>;
+describe('JoinedTextMarginComponent', () => {
+  let component: JoinedTextMarginComponent;
+  let fixture: ComponentFixture<JoinedTextMarginComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TextLineMarginComponent ]
+      declarations: [ JoinedTextMarginComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TextLineMarginComponent);
+    fixture = TestBed.createComponent(JoinedTextMarginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

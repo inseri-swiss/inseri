@@ -4,7 +4,6 @@ import {NO_ERRORS_SCHEMA} from '@angular/core';
 import {TextViewComponent} from './text-view.component';
 import {By} from '@angular/platform-browser';
 import {KnoraRequestService} from '../../../query-engine/knora/knora-request.service';
-import {SparqlRequestService} from '../../../query-engine/sparql/sparql-request.service';
 import {ResultToTextMapperService} from './result-to-text-mapper.service';
 
 describe('TextViewComponent', () => {
@@ -15,7 +14,6 @@ describe('TextViewComponent', () => {
   let metadata: HTMLElement;
   let canvas: HTMLElement;
   const knoraRequestServiceStub = {};
-  const sparqlRequestServiceStub = {};
   const resultToTextMapperServiceStub = {};
 
   beforeEach(waitForAsync(() => {
@@ -23,7 +21,6 @@ describe('TextViewComponent', () => {
       declarations: [TextViewComponent],
       providers: [
         {provide: KnoraRequestService, useValue: knoraRequestServiceStub},
-        {provide: SparqlRequestService, useValue: sparqlRequestServiceStub},
         {provide: ResultToTextMapperService, useValue: resultToTextMapperServiceStub}
       ],
       schemas: [NO_ERRORS_SCHEMA]

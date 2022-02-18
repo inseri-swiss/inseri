@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
+import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { TextSvgViewWrapperComponent } from './text-svg-view-wrapper.component';
 
 describe('TextSvgViewWrapperComponent', () => {
@@ -8,7 +9,11 @@ describe('TextSvgViewWrapperComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TextSvgViewWrapperComponent ]
+      imports: [RouterTestingModule],
+      declarations: [ TextSvgViewWrapperComponent ],
+      providers: [
+        { provide: ActivatedRoute, useValue: {} }
+      ]
     })
     .compileComponents();
   }));

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
-import { GndLobidComponent } from './gnd-lobid.component';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FileDatabaseForAppGND, GndLobidComponent } from './gnd-lobid.component';
 
 describe('GndLobidComponent', () => {
   let component: GndLobidComponent;
@@ -8,7 +9,18 @@ describe('GndLobidComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ GndLobidComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [ GndLobidComponent ],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {snapshot: { queryParams :{gnd: 'any'}}}
+        },
+        {
+          provide: FileDatabaseForAppGND,
+          useValue: new FileDatabaseForAppGND()
+        }
+      ]
     })
     .compileComponents();
   }));

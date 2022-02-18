@@ -5,7 +5,7 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {SelectionModel} from '@angular/cdk/collections';
 import {MatTableDataSource} from '@angular/material/table';
 import { environment } from '../../../../environments/environment';
-
+import {saveAs} from 'file-saver';
 
 @Component({
   selector: 'app-crispr',

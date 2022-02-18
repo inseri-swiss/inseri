@@ -15,37 +15,37 @@ chai.should()
 const { expect } = chai
 const jwtToken62 = createJWTToken('620522b4fc13ae03b300031b', 'foo.bar@inseri.swiss')
 
-describe('GET /users', () => {
-  describe('given one user', () => {
-    before(async () => {
-      await mongoose.connection.dropDatabase()
-      await initUser1()
-    })
+// describe('GET /users', () => {
+//   describe('given one user', () => {
+//     before(async () => {
+//       await mongoose.connection.dropDatabase()
+//       await initUser1()
+//     })
 
-    it("returns 200", async() => {
-      const {status} = await chai.request(server).get('/api/users')
-      status.should.equal(200)
-    })
+//     it("returns 200", async() => {
+//       const {status} = await chai.request(server).get('/api/users')
+//       status.should.equal(200)
+//     })
 
-    it("returns message", async() => {
-      const {body} = await chai.request(server).get('/api/users')
-      body.message.should.equal('One pages was found')
-    })
+//     it("returns message", async() => {
+//       const {body} = await chai.request(server).get('/api/users')
+//       body.message.should.equal('One pages was found')
+//     })
 
-    it("returns user object", async() => {
-      const {body} = await chai.request(server).get('/api/users')
-      body.user.should.deep.equal([{
-        _id: '620522b4fc13ae03b300031b',
-        email: 'foo.bar@inseri.swiss',
-        firstName: 'Foo',
-        lastName: 'Bar',
-        newsletter: false,
-        usrProfileFilePath: '/home/pic/foo.jpg',
-        password: "$2b$10$CYjApIE4xeoUQlxq9kh9Q.DKUsRoTLySUp1ylKbV7qn1nWN5jmzoy"
-      }])
-    })
-  })
-})
+//     it("returns user object", async() => {
+//       const {body} = await chai.request(server).get('/api/users')
+//       body.user.should.deep.equal([{
+//         _id: '620522b4fc13ae03b300031b',
+//         email: 'foo.bar@inseri.swiss',
+//         firstName: 'Foo',
+//         lastName: 'Bar',
+//         newsletter: false,
+//         usrProfileFilePath: '/home/pic/foo.jpg',
+//         password: "$2b$10$CYjApIE4xeoUQlxq9kh9Q.DKUsRoTLySUp1ylKbV7qn1nWN5jmzoy"
+//       }])
+//     })
+//   })
+// })
 
 describe('GET /users/:id', () => {
   before(async () => {

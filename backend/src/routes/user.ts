@@ -21,24 +21,26 @@ const storage = multer.diskStorage({
   }
 });
 
+// TODO validate if is really not used
+
 // Nur zum TESTEN --> UNBEDINGT WEGMACHEN, DA VERSCHLUESSELTES PASSWORT MITGESCHICKT WIRD!!!!!!!!!!
-router.get('', (req, res, next) => {
-  User.find()
-    .then(user => {
-      let message;
-      if (user.length === 0) {
-        message = 'No pages were found'
-      } else if (user.length === 1) {
-        message = 'One pages was found'
-      } else {
-        message = 'All pages were found'
-      }
-      res.status(200).json({
-        message: message,
-        user: user
-      });
-    });
-});
+// router.get('', (req, res, next) => {
+//   User.find()
+//     .then(user => {
+//       let message;
+//       if (user.length === 0) {
+//         message = 'No pages were found'
+//       } else if (user.length === 1) {
+//         message = 'One pages was found'
+//       } else {
+//         message = 'All pages were found'
+//       }
+//       res.status(200).json({
+//         message: message,
+//         user: user
+//       });
+//     });
+// });
 
 router.get('/:id', (req, res, next) => {
   User.findById(req.params.id)

@@ -8,6 +8,7 @@ import Query from '../models/query';
 import nodemailer from 'nodemailer';
 import multer from "multer";
 import checkAuth from '../middleware/check-auth';
+import ActivityLog from '../models/activityLog';
 const {NIE_OS_SERVER, SALT} = process.env;
 const router = express.Router();
 
@@ -21,7 +22,7 @@ const storage = multer.diskStorage({
   }
 });
 
-// TODO validate if is really not used
+// TODO validate if it is really not used
 
 // Nur zum TESTEN --> UNBEDINGT WEGMACHEN, DA VERSCHLUESSELTES PASSWORT MITGESCHICKT WIRD!!!!!!!!!!
 // router.get('', (req, res, next) => {
@@ -566,6 +567,10 @@ router.post('/login', (req, res, next) => {
           message: 'Auth failed'
         });
       }
+
+      const activitylog = new ActivityLog({createdAt: new Date(), userId: fetchedUser._id, email: fetchedUser.email})
+      activitylog.save()
+
       const token = jwt.sign(
         {
           email: fetchedUser.email,

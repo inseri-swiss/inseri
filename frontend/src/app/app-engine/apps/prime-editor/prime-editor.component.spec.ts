@@ -1,4 +1,6 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 
 import { PrimeEditorComponent } from './prime-editor.component';
 
@@ -8,7 +10,11 @@ describe('PrimeEditorComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ PrimeEditorComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [ PrimeEditorComponent ],
+      providers: [
+        { provide: ActivatedRoute, useValue: {snapshot: { url :[{path: 'not-home'}]}} }
+      ]
     })
     .compileComponents();
   }));

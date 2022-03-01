@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
+import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { IframeComponent } from './iframe.component';
 
 describe('IframeComponent', () => {
@@ -8,7 +9,14 @@ describe('IframeComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ IframeComponent ]
+      imports: [RouterTestingModule],
+      declarations: [ IframeComponent ],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {snapshot: { queryParams :[{url: 'not-home'}]}}
+        }
+      ]
     })
     .compileComponents();
   }));
@@ -16,6 +24,7 @@ describe('IframeComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(IframeComponent);
     component = fixture.componentInstance;
+    component.url = "localhost"
     fixture.detectChanges();
   });
 

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
+import { ActivatedRoute } from '@angular/router';
+import { KnoraV2ViewerRequestService } from '../knora-v2-viewer-request.service';
 import { KnoraV2ViewerComponent } from './knora-v2-viewer.component';
 
 describe('KnoraV2Viewer', () => {
@@ -8,7 +9,11 @@ describe('KnoraV2Viewer', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ KnoraV2ViewerComponent ]
+      declarations: [ KnoraV2ViewerComponent ],
+      providers: [
+        { provide: ActivatedRoute, useValue: {} },
+        { provide: KnoraV2ViewerRequestService, useValue: {} }
+      ]
     })
     .compileComponents();
   }));

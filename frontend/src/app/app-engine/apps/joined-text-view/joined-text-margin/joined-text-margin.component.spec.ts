@@ -1,4 +1,5 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { JoinedTextViewRequestService } from '../joined-text-view-request.service';
 
 import { JoinedTextMarginComponent } from './joined-text-margin.component';
 
@@ -6,9 +7,10 @@ describe('JoinedTextMarginComponent', () => {
   let component: JoinedTextMarginComponent;
   let fixture: ComponentFixture<JoinedTextMarginComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ JoinedTextMarginComponent ]
+      declarations: [ JoinedTextMarginComponent ],
+      providers: [{ provide: JoinedTextViewRequestService, useValue: {} }],
     })
     .compileComponents();
   }));

@@ -1,14 +1,17 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { JoinedTextViewComponent } from './joined-text-view.component';
 
 describe('JoinedTextViewComponent', () => {
   let component: JoinedTextViewComponent;
   let fixture: ComponentFixture<JoinedTextViewComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ JoinedTextViewComponent ]
+      imports: [RouterTestingModule],
+      declarations: [ JoinedTextViewComponent ],
+      providers: [{ provide: ActivatedRoute, useValue: {} }]
     })
     .compileComponents();
   }));

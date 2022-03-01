@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { HierarchicalNavigationRequestService } from '../hierarchical-navigation-request.service';
 
 import { HierarchicalNavigationNodeComponent } from './hierarchical-navigation-node.component';
 
@@ -8,7 +9,8 @@ describe('HierarchicalNavigationNodeComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ HierarchicalNavigationNodeComponent ]
+      declarations: [ HierarchicalNavigationNodeComponent ],
+      providers:[ {provide: HierarchicalNavigationRequestService, useValue: {}} ]
     })
     .compileComponents();
   }));
@@ -16,6 +18,19 @@ describe('HierarchicalNavigationNodeComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HierarchicalNavigationNodeComponent);
     component = fixture.componentInstance;
+    component.resource = {
+      "@id": "myvalue"
+    }
+
+    component.pathMap = {
+      "mykey": "myvalue"
+    }
+
+    component.nodeConfiguration = {
+      propertyIri: "",
+      propertyDirection: "",
+      routeKey: "mykey"
+    }
     fixture.detectChanges();
   });
 

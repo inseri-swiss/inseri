@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { JoinedTextViewRequestService } from '../joined-text-view-request.service';
 
 import { JoinedTextLineComponent } from './joined-text-line.component';
 
@@ -8,7 +9,8 @@ describe('TextLineComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JoinedTextLineComponent ]
+      declarations: [ JoinedTextLineComponent ],
+      providers: [{ provide: JoinedTextViewRequestService, useValue: {} }],
     })
     .compileComponents();
   }));

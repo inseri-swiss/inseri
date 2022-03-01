@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { JoinedTextViewRequestService } from '../joined-text-view-request.service';
 import { JoinedTextLinepartComponent } from './joined-text-linepart.component';
 
 describe('JoinedTextLinepartComponent', () => {
@@ -8,7 +8,8 @@ describe('JoinedTextLinepartComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JoinedTextLinepartComponent ]
+      declarations: [ JoinedTextLinepartComponent ],
+      providers: [{ provide: JoinedTextViewRequestService, useValue: {} }],
     })
     .compileComponents();
   }));
@@ -16,6 +17,11 @@ describe('JoinedTextLinepartComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(JoinedTextLinepartComponent);
     component = fixture.componentInstance;
+    component.linepartConfiguration = {
+      propertyIri: '',
+      propertyDirection: '',
+      prefix: ''
+    }
     fixture.detectChanges();
   });
 

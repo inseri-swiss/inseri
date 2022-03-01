@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 
 import { HtmlViewerComponent } from './html-viewer.component';
 
@@ -8,7 +9,13 @@ describe('HtmlViewerComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ HtmlViewerComponent ]
+      declarations: [ HtmlViewerComponent ],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {}
+        }
+      ]
     })
     .compileComponents();
   }));

@@ -41,13 +41,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import {LoadVariablesComponent} from './load-variables/load-variables.component';
 import { QueryListComponent } from '../query-engine/query-list/query-list.component';
 import { DataAssignmentComponent } from '../query-app-interface/data-management/data-assignment/data-assignment.component';
-import { NewGjsBoxDialogComponent } from './apps/grapesjs/new-gjs-box-dialog/new-gjs-box-dialog.component';
 import { SimpleImageAppComponent } from './apps/simple-image-app/simple-image-app.component';
 import { FileDatabaseForApp, ResponseTreeAppComponent } from './apps/response-tree/response-tree.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { QueryInformationDialogComponent } from './page/query-information-dialog/query-information-dialog.component';
 import { MatCardModule } from '@angular/material/card';
-import {GrapesjsComponent} from './apps/grapesjs/grapesjs.component';
 import { ImageFrameModule } from './apps/image-frame/image-frame.module';
 import { ParzivalFassungComponent } from './apps/parzival-fassung/parzival-fassung.component';
 import { ComplexTextViewsModule } from './apps/complex-text-views/complex-text-views.module';
@@ -206,12 +204,10 @@ import { DemoAppComponent } from './apps/demo-app/demo-app.component';
     LoadVariablesComponent,
     QueryListComponent,
     DataAssignmentComponent,
-    NewGjsBoxDialogComponent,
     SimpleImageAppComponent,
     ResponseTreeAppComponent,
     QueryInformationDialogComponent,
     MinimizePasswordDialog,
-    GrapesjsComponent,
     ParzivalFassungComponent,
     HighlightPipe,
     OpenbisLoginComponent,
@@ -260,7 +256,6 @@ import { DemoAppComponent } from './apps/demo-app/demo-app.component';
   exports: [
     PageComponent,
     MatSidenavModule,
-    GrapesjsComponent,
     AllAppSelectorsComponent,
     CommentOnIndicesComponent
   ],
@@ -270,7 +265,6 @@ import { DemoAppComponent } from './apps/demo-app/demo-app.component';
     QueryAppInputMapComponent,
     FrameSettingsComponent,
     QueryListComponent,
-    NewGjsBoxDialogComponent,
     QueryInformationDialogComponent,
     DataChooserComponent,
     AppInputComponentComponent,

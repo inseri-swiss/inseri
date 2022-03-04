@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { of } from 'rxjs';
+import { QueryService } from 'src/app/user-action-engine/mongodb/query/query.service';
 
 import { QueryListComponent } from './query-list.component';
 
@@ -8,7 +11,15 @@ describe('QueryListComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ QueryListComponent ]
+      imports: [MatDialogModule],
+      declarations: [ QueryListComponent ],
+      providers: [
+        { provide: MatDialogRef, useValue: {}},
+        { provide: MAT_DIALOG_DATA, useValue: {query: {_id: 3}} },
+        { provide: QueryService, useValue: {
+          getAllQueriesOfUser: () => of()
+        }},
+      ]
     })
     .compileComponents();
   }));

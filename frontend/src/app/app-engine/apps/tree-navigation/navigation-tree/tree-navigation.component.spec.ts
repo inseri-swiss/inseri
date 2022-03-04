@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
+import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 import { TreeNavigationComponent } from './tree-navigation.component';
 
 describe('TreeNavigationComponent', () => {
@@ -8,7 +9,11 @@ describe('TreeNavigationComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TreeNavigationComponent ]
+      imports: [RouterTestingModule],
+      declarations: [ TreeNavigationComponent ],
+      providers: [
+        { provide: ActivatedRoute, useValue: {} }
+      ]
     })
     .compileComponents();
   }));

@@ -16,10 +16,10 @@ export class InterpolateVariablesInQueriesService {
   static interpolateVariables(query: string, variables: string[][]): string {
     let newQuery = query;
 
-    for (const v in variables) {
+    for (const v of variables) {
       if (v.length > 1) {
         const escapeSequence = '§§+' + v[0] + '-§§';
-        if (query.match(escapeSequence)) {
+        if (newQuery.includes(escapeSequence)) {
           newQuery = newQuery.split(escapeSequence).join(v[1]);
         } else {
           console.log('InterpolateVariablesInQueriesService: Variable ' + v[0] + ' could not be replaced');
@@ -28,7 +28,7 @@ export class InterpolateVariablesInQueriesService {
         console.log('InterpolateVariablesInQueriesService: Empty field in variables');
       }
     }
-    if (newQuery.match('§§+') || newQuery.match('-§§')) {
+    if (newQuery.includes('§§+') || newQuery.includes('-§§')) {
       console.log('InterpolateVariablesInQueriesService: Unreplaced escape sequence');
     }
     // TODO: error handling

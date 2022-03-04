@@ -70,7 +70,7 @@ describe('InterpolateVariablesInQueriesService', () => {
     const variables = [['person', 'http://data.example.com/my#Resource'], ['name', 'Doe']];
     const newQuery = InterpolateVariablesInQueriesService.interpolateVariables(query, variables);
     const result = 'PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n' +
-      'SELECT ?email \n' +
+      'SELECT ?email\n' +
       'WHERE\n' +
       '  {\n' +
       '    <http://data.example.com/my#Resource>  a          foaf:Person .\n' +

@@ -66,7 +66,9 @@ jobs:
       - browser-tools/install-chrome
       - run: |
           cd frontend
-          npm run test
+          npm run test -- --reporters junit
+      - store_test_results:
+          path: frontend/test_output
 
 workflows:
   backend:

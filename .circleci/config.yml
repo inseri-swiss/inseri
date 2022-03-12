@@ -1,4 +1,8 @@
 version: 2.1
+
+orbs:
+  browser-tools: circleci/browser-tools@1.1.3
+
 jobs:
   build:
     docker:
@@ -33,7 +37,8 @@ jobs:
           root: .
           paths:
             - << parameters.app_path >>/
-  test:
+
+  backend-test:
     docker:
       - image: 'cimg/node:16.13-browsers'
       - image: 'mongo:4.4'
@@ -51,15 +56,30 @@ jobs:
       - store_artifacts:
           path: backend/coverage
 
+  frontend-test:
+    docker:
+      - image: 'cimg/node:16.13-browsers'
+    resource_class: medium
+    steps:
+      - attach_workspace:
+          at: .
+      - browser-tools/install-chrome
+      - run: |
+          cd frontend
+          npm run test
+
 workflows:
   backend:
     jobs:
       - build:
           app_path: backend
-      - test:
+      - backend-test:
            requires:
              - build
   frontend:
     jobs:
       - build:
           app_path: frontend
+      - frontend-test:
+           requires:
+             - build

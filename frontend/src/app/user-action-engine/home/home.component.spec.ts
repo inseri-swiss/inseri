@@ -1,5 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-
+import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AuthService } from '../mongodb/auth/auth.service';
 import { HomeComponent } from './home.component';
 
 describe('HomeComponent', () => {
@@ -8,7 +11,15 @@ describe('HomeComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      imports: [HttpClientTestingModule, RouterTestingModule],
+      declarations: [ HomeComponent ],
+      providers: [
+        { provide: ActivatedRoute, useValue: {
+          snapshot: {queryParams: { returnUrl : ''}}
+         }
+        },
+        { provide: AuthService, useValue: {} }
+      ],
     })
     .compileComponents();
   }));
@@ -19,7 +30,7 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

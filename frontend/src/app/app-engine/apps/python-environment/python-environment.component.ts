@@ -1,12 +1,11 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
 import {HttpClient, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 import { of, Observable } from 'rxjs';
-import {environment} from '../../../../environments/environment';
-import {GenerateHashService} from '../../../user-action-engine/other/generateHash.service';
 import {MicroserviceService} from '../../../user-action-engine/mongodb/microservice/microservice.service';
 import {FileService} from '../../../user-action-engine/file/file.service';
 import 'ace-builds/src-noconflict/mode-python';
 import { materialize, dematerialize } from 'rxjs/operators';
+import { GeneralRequestService } from 'src/app/query-engine/general/general-request.service';
 
 @Component({
   selector: 'app-python-environment',
@@ -18,6 +17,7 @@ export class PythonEnvironmentComponent implements OnChanges, HttpInterceptor {
   @Input() hash: string;
   @Input() assignedJson: any;
   @Input() pythonFile: any;
+  @Input() appInputQueryMapping: string;
   @Output() reloadVariables: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('editor', { static: true }) editor;
   serivceId = 'pythonEnvironment';
@@ -26,7 +26,8 @@ export class PythonEnvironmentComponent implements OnChanges, HttpInterceptor {
   constructor(
     private http: HttpClient,
     private microserviceService: MicroserviceService,
-    public fileService: FileService
+    public fileService: FileService,
+    public requestService: GeneralRequestService
   ) {
   }
 
@@ -115,27 +116,38 @@ export class PythonEnvironmentComponent implements OnChanges, HttpInterceptor {
   }
 
   savePythonFile( submit?: boolean ) {
-    console.log(this.pythonFile);
-    this.fileService.getFileByUrl( this.pythonFile )
-      .subscribe(response => {
-        console.log( response );
-        const file = (response as any).file;
-        console.log(file);
-        this.fileService.updateFile(
-          file._id,
-          file.title,
-          file.description,
-          this.editor.text,
-          this.pythonFile)
-          .subscribe(savedFile => {
-            console.log( savedFile );
-              if ( submit ) {
-                this.submitToMicroservice();
-              }
-          }, error1 => console.log( error1 )
-          );
-      }, error => console.log( error )
-      );
+    const isPythonFileAnURL = (this.pythonFile || '').startsWith("http")
+
+    if(isPythonFileAnURL){
+      this.fileService.getFileByUrl( this.pythonFile )
+        .subscribe(response => {
+          const file = (response as any).file;
+          this.fileService.updateFile(
+            file._id,
+            file.title,
+            file.description,
+            this.editor.text,
+            this.pythonFile)
+            .subscribe(savedFile => {
+                if ( submit ) {
+                  this.submitToMicroservice();
+                }
+            });
+        });
+    } else {
+      this.requestService.updateFile(
+        this.appInputQueryMapping[this.hash]['pythonFile']['serverUrl'].split('/')[6],
+        {
+          [this.hash]: {
+            pythonFile: this.editor.text
+          }
+        }
+      ).subscribe(data => {
+        if ( submit ) {
+          this.submitToMicroservice();
+        }
+      })
+    }
   }
 
   updateCodeInLocalStorage() {
@@ -145,4 +157,3 @@ export class PythonEnvironmentComponent implements OnChanges, HttpInterceptor {
   }
 
 }
- // NOqTY

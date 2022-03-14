@@ -16,13 +16,15 @@ import { Document } from "mongoose";
 
 const router = express.Router();
 
+const makeFullFilesPath = (...parts: string[]) => path.join(__dirname, "..", ...parts)
+
 
 /**
  * Storage object to define the destination path and to generate the file name
  */
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, "..", "files"));
+    cb(null, makeFullFilesPath("files"));
   },
   filename: (req, file, cb) => {
     //console.log(" storage file id "+ file._id);
@@ -44,7 +46,7 @@ router.post('/uploadZipFile', multer({storage: storage}).single("zip"), (req, re
     message: "File added successfully",
     fileUrlPath: req.protocol + "://" + req.get("host") + "/files/" + req.file.filename,
     fileName: req.file.filename,
-    srvrPath: "./backend/files/" + req.file.filename
+    srvrPath: makeFullFilesPath("files", req.file.filename)
   });
 });
 
@@ -88,7 +90,7 @@ router.post('/singleFileUpload/:folderId/:newFile', checkAuth, multer({storage: 
       .then((updatedDocument) => {
         console.log(updatedDocument);
         if (req.params.newFile === 'true') {
-          let urlPath = 'backend' + file.urlPath.substring(file.urlPath.indexOf('/files/'));
+          let urlPath = makeFullFilesPath( file.urlPath.substring(file.urlPath.indexOf('/files/')) );
           //urlPath= req.protocol + "://" + req.get("host") + "/files/" + Date.now() + "-" + req.body.title+"backend/files/" + Date.now() + "-" + req.body.title;
           fs.writeFile(urlPath, req.body.content, function (err) {
             if (err) {
@@ -206,7 +208,7 @@ router.get("/:id", (req, res, next) => {
       //console.log(file);
       //console.log(file.urlPath);
 
-      let content = '', filePath = path.join(__dirname, "..", file.urlPath.substring(file.urlPath.indexOf('/files/')) );
+      let content = '', filePath = makeFullFilesPath( file.urlPath.substring(file.urlPath.indexOf('/files/')) );
       fs.readFile(filePath, function (err, data) {
         if (err) {
           console.log(err);
@@ -263,7 +265,7 @@ router.post("/:id", checkAuth, (req, res, next) => {
   FileModel.updateOne({_id: req.params.id, owner: req.userData.userId},
     {$set: {title: req.body.title, description: req.body.description}})
     .then(result => {
-      let path = 'backend' + req.body.urlPath.substring(req.body.urlPath.indexOf('/files/'));
+      let path = makeFullFilesPath( req.body.urlPath.substring(req.body.urlPath.indexOf('/files/')) );
       if (path.match(/.*\.(txt)|(py)|(json)$/)) {
         fs.writeFile(path, req.body.content, function (err) {
           if (err) {
@@ -779,7 +781,7 @@ async function getQueriesFromPages(queryIds, returnedObj, res, req) {
  * Not used
  */
 router.get("/restoreFiles/", (req, res, next) => {
-  fs.promises.readdir('backend/files').then(filenames => {
+  fs.promises.readdir(makeFullFilesPath('files')).then(filenames => {
     return res.status(200).json({
       message: 'Files retuned ',
       files: filenames

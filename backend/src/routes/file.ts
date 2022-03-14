@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import FileModel, { File } from "../models/files";
 import Folder from "../models/folder";
 import multer from "multer";
@@ -21,7 +22,7 @@ const router = express.Router();
  */
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "backend/files");
+    cb(null, path.join(__dirname, "..", "files"));
   },
   filename: (req, file, cb) => {
     //console.log(" storage file id "+ file._id);
@@ -204,13 +205,14 @@ router.get("/:id", (req, res, next) => {
     if (file) {
       //console.log(file);
       //console.log(file.urlPath);
-      let content = '', path = 'backend' + file.urlPath.substring(file.urlPath.indexOf('/files/'));
-      fs.readFile(path, function (err, data) {
+
+      let content = '', filePath = path.join(__dirname, "..", file.urlPath.substring(file.urlPath.indexOf('/files/')) );
+      fs.readFile(filePath, function (err, data) {
         if (err) {
           console.log(err);
         } else {
           //console.log(data.toString());
-          if (path.match(/.*\.(txt)|(py)|(json)$/)) {
+          if (filePath.match(/.*\.(txt)|(py)|(json)$/)) {
             content = data.toString();
           } else {
             content = '';
@@ -239,7 +241,7 @@ router.get("/getFileByUrl/:url", checkAuth, (req, res, next) => {
   console.log( req.params.url );
   const fileName = req.params.url.split( "/")[ 4 ]
   console.log( req.params.url.split( "/"), fileName )
- 
+
   FileModel.findOne({urlPath: {$regex : fileName}}).then(file => {
     if (file) {
       console.log('file:', file);

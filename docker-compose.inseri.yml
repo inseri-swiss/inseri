@@ -2,7 +2,7 @@ version: "3"
 
 services:
   frontend:
-    image: nieine/inseri-frontend:2022-02-16 #nieos-test-instance:21-10-21v2
+    image: nieine/inseri-frontend:2022-03-15 #2022-02-18
     expose:
       - "80"
     environment:
@@ -11,7 +11,7 @@ services:
       - LETSENCRYPT_HOST=apps.inseri.swiss
 
   backend:
-    image: nieine/inseri-backend:2022-02-16 #mean:2021-09-09
+    image: nieine/inseri-backend:2022-03-15 #2022-02-18
     expose:
       - "3000"
     env_file:
@@ -23,6 +23,12 @@ services:
     volumes:
       - ./inseriPersistentDataVolume/backend/files:/usr/src/app/files
     restart: unless-stopped
+
+  mongo_inseri:
+    image: mongo:5.0
+    volumes:
+      - ./inseriPersistentDataVolume/mongoData_inseri:/data/db
+    restart: always
 
 networks:
   default:

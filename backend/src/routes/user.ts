@@ -112,7 +112,7 @@ router.put('/:id', checkAuth, (req, res, next) => {
       }
 
       // Updates user data
-      User.findOneAndUpdate({_id: req.body.userId},
+      User.findOneAndUpdate({_id: req.userData.userId },
         {
           email: req.body.email,
           firstName: req.body.firstName,
@@ -331,7 +331,7 @@ router.get('/:email/reset-password', (req, res, next) => {
     });
 });
 
-router.get('/:email/getUserByEmail', (req, res, next) => {
+router.get('/:email/getUserByEmail', checkAuth, (req, res, next) => {
   User.findOne({email: req.params.email})
     .then(result => {
         result.password = undefined

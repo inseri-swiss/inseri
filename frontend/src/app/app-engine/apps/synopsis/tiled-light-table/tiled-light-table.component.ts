@@ -4,7 +4,7 @@ import {SynopsisObjectData, SynopsisObjectType} from '../synopsis-object-data';
 import {LightTableStashService} from '../light-table-stash.service';
 import {SynopsisObjectModifierService} from '../synopsis-object-modifier.service';
 import {SynopsisObjectSerializerService} from '../synopsis-object-serializer.service';
-import {Subscription} from 'rxjs/Subscription';
+import {Subscription} from 'rxjs';
 import {DragService} from '../drag.service';
 
 @Component({

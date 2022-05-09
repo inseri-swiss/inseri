@@ -8,7 +8,7 @@ import {FloatingTextObjectComponent} from '../floating-text-object/floating-text
 import {FloatingImageObjectComponent} from '../floating-image-object/floating-image-object.component';
 import {SynopsisItem} from '../synopsis-item';
 import {LightTableStashService} from '../light-table-stash.service';
-import {Subscription} from 'rxjs/Subscription';
+import {Subscription} from 'rxjs';
 
 interface ComponentRefTracker {
   [uid: number]: ComponentRef<SynopsisObject>;

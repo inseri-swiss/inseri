@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {TextViewCanvasComponent} from './text-view-canvas.component';
 import {StandoffReconcilerService} from '../../standoff/standoff-reconciler.service';
 import {CanvasOptionsService} from '../canvas-options.service';
-import {Subject} from 'rxjs/Subject';
+import {Subject} from 'rxjs';
 
 describe('TextViewCanvasComponent', () => {
   let component: TextViewCanvasComponent;

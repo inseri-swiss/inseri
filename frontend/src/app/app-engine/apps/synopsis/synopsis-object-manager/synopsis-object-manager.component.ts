@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {DUMMYSYNOPSISOBJECTS} from '../dummy-synopsis-objects';
 import {SynopsisObjectData} from '../synopsis-object-data';
 import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {MatDialogRef} from '@angular/material/dialog';
 import {SynopsisObjectStorageService} from '../synopsis-object-storage.service';

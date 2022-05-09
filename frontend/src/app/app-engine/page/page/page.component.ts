@@ -5,18 +5,15 @@
 
 import {AfterViewChecked, ChangeDetectorRef, Component, HostListener, Inject, NgModule, OnInit, VERSION, ViewChild} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
-import 'rxjs/add/operator/map';
 import {ActivatedRoute, Router} from '@angular/router';
 import {GenerateHashService} from '../../../user-action-engine/other/generateHash.service';
 import {OpenAppsModel} from '../../../user-action-engine/mongodb/page/open-apps.model';
 import {PageService} from '../../../user-action-engine/mongodb/page/page.service';
 import { DataManagementComponent } from '../../../query-app-interface/data-management/data-management/data-management.component';
-import { NgxSpinnerService } from 'ngx-spinner';
 import {GeneralRequestService} from '../../../query-engine/general/general-request.service';
 import {QueryInformationDialogComponent} from '../query-information-dialog/query-information-dialog.component';
 import {StyleMappingService} from '../../../query-app-interface/services/style-mapping-service';
-import {Observable, Subscription} from 'rxjs';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {interval} from 'rxjs';
 import {ActionService} from '../../../user-action-engine/mongodb/action/action.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
@@ -28,18 +25,14 @@ import {QueryService} from '../../../user-action-engine/mongodb/query/query.serv
 import { environment } from '../../../../environments/environment';
 import {DialogCreateNewPageComponent} from '../../../user-action-engine/page-set/page-set-landing-page/page-set-landing-page.component';
 import {AppInputComponentComponent} from '../app-input-component/app-input-component.component';
-import {AddAppGroupDialogComponent} from '../add-app-group-dialog/add-app-group-dialog.component';
 import {DataAssignmentComponent} from '../../../query-app-interface/data-management/data-assignment/data-assignment.component';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {PageListDialogComponent} from '../page-list-dialog/page-list-dialog.component';
 import {OverlayContainer} from '@angular/cdk/overlay';
 import {PageSetService} from '../../../user-action-engine/mongodb/pageset/page-set.service';
 import {SubPageOfPageModel} from '../../../user-action-engine/mongodb/page/subPageOfPage.model';
-import {NestedMenu} from '../menu-item/nested-menu';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {GenerateDataChoosersService} from '../../../query-app-interface/data-management/services/generate-data-choosers.service';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -485,7 +478,7 @@ export class PageComponent implements OnInit, AfterViewChecked {
     /**
      * Checks how much longer user is logged on
      * */
-    this.sub = Observable.interval(1000)
+    this.sub = interval(1000)
       .subscribe((val) => {
         this.checkTimeUntilLogout();
       });

@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {RequestTemplate} from './request-template';
-import {Observable} from 'rxjs/Observable';
-import {KnoraAuthService} from './knora-auth.service';
+import {Observable} from 'rxjs';
 
 
 @Injectable()

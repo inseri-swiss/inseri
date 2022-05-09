@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
+import {Subject} from 'rxjs';
 import {SynopsisObjectData} from '../synopsis-object-data';
-import {ReplaySubject} from 'rxjs/ReplaySubject';
+import {ReplaySubject} from 'rxjs';
 
 @Injectable()
 export class SynopsisObjectSerializerServiceStub {

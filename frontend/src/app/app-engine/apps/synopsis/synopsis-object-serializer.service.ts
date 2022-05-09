@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { SynopsisObjectStorageService } from './synopsis-object-storage.service';
 import { SynopsisObjectData } from './synopsis-object-data';
-import { Subject } from 'rxjs/Subject';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
+import { Subject } from 'rxjs';
+import { ReplaySubject } from 'rxjs';
 import { LightTableLayoutService } from './light-table-layout.service';
 
 interface StorageObject {

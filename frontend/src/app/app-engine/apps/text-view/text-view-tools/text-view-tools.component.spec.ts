@@ -4,7 +4,7 @@ import {TextViewToolsComponent} from './text-view-tools.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from '../../../../material.module';
 import {CanvasOptionsService} from '../canvas-options.service';
-import {Subject} from 'rxjs/Subject';
+import {Subject} from 'rxjs';
 
 describe('TextViewToolsComponent', () => {
   let component: TextViewToolsComponent;

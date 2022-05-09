@@ -5,18 +5,12 @@
  * */
 
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/delay';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/materialize';
-import 'rxjs/add/operator/dematerialize';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import {AuthService} from '../../user-action-engine/mongodb/auth/auth.service';
 import { environment} from '../../../environments/environment';
-import {stringify} from 'querystring';
+import { dematerialize, materialize, mergeMap } from 'rxjs/operators';
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -36,7 +30,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         // const editions: any[] = JSON.parse(localStorage.getItem('editions')) || [];
         //
         // // wrap in delayed observable to simulate server api call
-        return Observable.of(null).mergeMap(() => {
+        return of(null).pipe(mergeMap(() => {
           if (request.url.endsWith('/tutorialOne') && request.method === 'GET') {
             const body = {
               poems: [
@@ -84,7 +78,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 }
               ]
             };
-            return Observable.of(new HttpResponse({ status: 200, body: body }));
+            return of(new HttpResponse({ status: 200, body: body }));
           }
 
           if (request.url.endsWith('/tutorialTwo') && request.method === 'GET') {
@@ -107,7 +101,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 }
               ]
             };
-            return Observable.of(new HttpResponse({ status: 200, body: body }));
+            return of(new HttpResponse({ status: 200, body: body }));
           }
 
           if (request.url.endsWith('/enhancement208') && request.method === 'GET') {
@@ -256,7 +250,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 }
               ]
             };
-            return Observable.of(new HttpResponse({ status: 200, body: body }));
+            return of(new HttpResponse({ status: 200, body: body }));
           }
         //
         //     // get users
@@ -605,7 +599,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           // console.log('Pass on request');
           // console.log(request);
           // attach Token from nodejs
-          
+
           if( request.url.search( environment.node ) !== -1 ) {
             const authToken = this.authService.getToken();
             const authRequest = request.clone({
@@ -627,11 +621,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           } else {
             return next.handle(request);
           }
-        })
+        }))
 
         // call materialize and dematerialize to ensure delay even if an error is thrown
         // (https://github.com/Reactive-Extensions/RxJS/issues/648)
-        .materialize()
-        .dematerialize();
+        .pipe(materialize())
+        .pipe(dematerialize());
     }
 }

@@ -7,9 +7,9 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { QueryService } from '../../user-action-engine/mongodb/query/query.service';
-import 'rxjs/add/operator/mergeMap';
 import { environment } from '../../../environments/environment';
 import {ActivatedRoute} from '@angular/router';
+import { mergeMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -25,11 +25,11 @@ export class GeneralRequestService {
 
   request(queryID) {
     return this.queryService.getQuery(queryID)
-      .mergeMap(data => {
+      .pipe(mergeMap(data => {
           const query = data.query;
           // console.log( data );
           return this.goThroughParams( query, data );
-      });
+      }));
   }
 
   goThroughParams( query: any, data: any ) {

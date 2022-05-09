@@ -10,18 +10,12 @@ import {
   Input,
   Output,
   EventEmitter,
-  AfterContentInit,
-  ContentChildren,
-  QueryList,
   ElementRef,
   Renderer2, OnInit, OnChanges, AfterViewChecked, SimpleChanges, ViewChild, ChangeDetectorRef
 } from '@angular/core';
-import 'rxjs/add/operator/map';
 import { FrameSettingsComponent } from '../frame-settings/frame-settings.component';
 import {ActivatedRoute, Router} from '@angular/router';
 import { DataAssignmentComponent } from '../../../query-app-interface/data-management/data-assignment/data-assignment.component';
-import {QueryEntryComponent} from '../../../query-engine/query-entry/query-entry.component';
-import {Observable} from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
 import {HttpClient} from '@angular/common/http';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';

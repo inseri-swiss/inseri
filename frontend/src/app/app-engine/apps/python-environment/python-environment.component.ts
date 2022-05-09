@@ -4,7 +4,7 @@ import { of, Observable } from 'rxjs';
 import {MicroserviceService} from '../../../user-action-engine/mongodb/microservice/microservice.service';
 import {FileService} from '../../../user-action-engine/file/file.service';
 import 'ace-builds/src-noconflict/mode-python';
-import { materialize, dematerialize } from 'rxjs/operators';
+import { materialize, dematerialize, mergeMap } from 'rxjs/operators';
 import { GeneralRequestService } from 'src/app/query-engine/general/general-request.service';
 
 @Component({
@@ -62,7 +62,7 @@ export class PythonEnvironmentComponent implements OnChanges, HttpInterceptor {
       pythonEnvironmentSet.add( pythonEnvironmentInstances[ 'hash' ] );
     }
 
-    return of(null).mergeMap(() => {
+    return of(null).pipe(mergeMap(() => {
       if ( pythonEnvironmentSet.has( request.url ) ) {
         // console.log( 'interceptor is triggered' );
         const body = pythonEnvironmentInstances;
@@ -71,7 +71,7 @@ export class PythonEnvironmentComponent implements OnChanges, HttpInterceptor {
       } else {
         return next.handle(request);
       }
-    })
+    }))
     .pipe(materialize())
     .pipe(dematerialize());
   }

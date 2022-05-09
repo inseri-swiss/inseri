@@ -1,16 +1,13 @@
 import {Component, OnInit, OnDestroy, Inject, AfterViewChecked, ChangeDetectorRef} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {AuthService} from '../mongodb/auth/auth.service';
-import {Subscription} from 'rxjs';
+import {interval, Subscription} from 'rxjs';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {InitService} from '../init-popup/service/init.service';
 import {InitPopupComponent} from '../init-popup/init-popup.component';
 import {ActionService} from '../mongodb/action/action.service';
-import {PageService} from '../mongodb/page/page.service';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {ThemePalette} from '@angular/material/core';
-import {Observable} from 'rxjs';
-import 'rxjs/add/observable/interval';
 import {ContactService} from '../mongodb/contact/contact.service';
 import {environment} from '../../../environments/environment';
 import {PasswordFormatCheckService} from '../shared/password-format-check.service';
@@ -108,7 +105,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   ngOnInit() {
-    this.sub = Observable.interval(1000)
+    this.sub = interval(1000)
       .subscribe((val) => {
         this.checkTimeUntilLogout();
       });

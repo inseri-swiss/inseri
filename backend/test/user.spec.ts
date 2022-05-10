@@ -683,18 +683,21 @@ describe('GET /users/:email/getUserByEmail', () => {
     it("returns 201", async() => {
       const {status} = await chai.request(server)
                                  .get('/api/users/foo.bar@inseri.swiss/getUserByEmail')
+                                 .auth(jwtToken62, { type: 'bearer' })
       status.should.equal(201)
     })
 
     it("returns message", async() => {
       const {body} = await chai.request(server)
                                .get('/api/users/foo.bar@inseri.swiss/getUserByEmail')
+                               .auth(jwtToken62, { type: 'bearer' })
       body.message.should.equal("User Successfully found ")
     })
 
     it("returns user object", async() => {
       const {body} = await chai.request(server)
                                .get('/api/users/foo.bar@inseri.swiss/getUserByEmail')
+                               .auth(jwtToken62, { type: 'bearer' })
       body.user.should.deep.equal({
         _id: '620522b4fc13ae03b300031b',
         email: 'foo.bar@inseri.swiss',

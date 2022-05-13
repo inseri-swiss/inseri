@@ -101,7 +101,6 @@ import { MachineReasoningComponent } from './apps/machine-reasoning/machine-reas
 //import { MenuItemComponent } from './page/menu-item/menu-item.component';
 import { NestedMenu} from './page/menu-item/nested-menu';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
-import { OurDemoAppComponent } from './apps/our-demo-app/our-demo-app.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTreeModule} from '@angular/material/tree';
@@ -246,8 +245,6 @@ import { DemoAppComponent } from './apps/demo-app/demo-app.component';
 
     //MenuItemComponent,
     NestedMenu,
-
-    OurDemoAppComponent,
 
     MatCardComponent,
 

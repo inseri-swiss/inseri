@@ -4,7 +4,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 /**
  * This service deals with requests to the Knora V2 API and centralizes parameters for it.
  */
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class KnoraV2ViewerRequestService {
 
   basicAuthentication = 'email=root%40example.com&password=test'; // TODO: integrate into login framework

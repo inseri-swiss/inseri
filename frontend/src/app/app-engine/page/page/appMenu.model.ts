@@ -340,39 +340,17 @@ export class AppMenuModel {
       showOnHome: false,
       appGroup: 'visualise'
     },
-    // {
-    //   id: 'add_to_queue',
-    //   name: 'Knora Resource Creation',
-    //   tags: 'knora, data entry',
-    //   color: 'orange',
-    //   status: 'under development',
-    //   appType: 'createResourceForm',
-    //   description: 'With this app you can create data in Knora.',
-    //   showOnHome: false,
-    //   appGroup: 'add'
-    // },
-    // {
-    //   id: 'web',
-    //   name: 'Knora Edit Resource',
-    //   tags: 'knora, data manipulation',
-    //   color: 'orange',
-    //   status: 'under development',
-    //   appType: 'editResourceForm',
-    //   description: 'With this app you can change data in Knora and see the history of given properties.',
-    //   showOnHome: false,
-    //   appGroup: 'add'
-    // },
-    // {
-    //   id: 'web',
-    //   name: 'Nested Resource Viewer',
-    //   tags: 'knora',
-    //   color: 'orange',
-    //   status: 'under development',
-    //   appType: 'knoraV2viewer',
-    //   description: 'With this app you can easily look at a Knora resource.',
-    //   showOnHome: false,
-    //   appGroup: 'visualise'
-    // },
+    {
+      id: 'web',
+      name: 'Nested Resource Viewer',
+      tags: 'knora',
+      color: 'orange',
+      status: 'under development',
+      appType: 'knoraV2viewer',
+      description: 'With this app you can easily look at a Knora resource.',
+      showOnHome: false,
+      appGroup: 'visualise'
+    },
     {
       id: 'aspect_ratio',
       name: 'Joined Text View',

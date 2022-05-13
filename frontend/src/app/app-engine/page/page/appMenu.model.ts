@@ -120,17 +120,17 @@ export class AppMenuModel {
       showOnHome: true,
       appGroup: 'visualise'
     },
-    // {
-    //   id: 'line_style',
-    //   name: 'SVG-Transcription',
-    //   tags: 'diplomatic transcription, text',
-    //   color: 'orange',
-    //   status: 'under development',
-    //   appType: 'svgTranscription',
-    //   description: ' SVG transcription with exact word positions',
-    //   showOnHome: false,
-    //   appGroup: 'visualise'
-    // },
+    {
+      id: 'line_style',
+      name: 'SVG-Transcription',
+      tags: 'diplomatic transcription, text',
+      color: 'orange',
+      status: 'under development',
+      appType: 'svgTranscription',
+      description: ' SVG transcription with exact word positions',
+      showOnHome: false,
+      appGroup: 'visualise'
+    },
     // {
     //   id: 'view_week',
     //   name: 'Parzival - Fassung',

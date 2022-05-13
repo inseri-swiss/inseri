@@ -92,7 +92,6 @@ import { PieChartV2Component } from './apps/pie-chart-v2/pie-chart-v2.component'
 import { GroupedBarChartV2Component } from './apps/grouped-bar-chart-v2/grouped-bar-chart-v2.component';
 import { CommentOnIndicesComponent } from './apps/comment-on-indices/comment-on-indices.component';
 //import {DataListViewDetailsDialogComponent} from './apps/data-list-view/data-list-view-details-dialog/data-list-view-details-dialog.component';
-import { CalendarComponent } from './apps/calendar/calendar.component';
 import { CrisprComponent } from './apps/crispr/crispr.component';
 import { MatFileUploadModule } from 'angular-material-fileupload';
 import { BrowserModule } from '@angular/platform-browser';
@@ -173,7 +172,6 @@ import { DemoAppComponent } from './apps/demo-app/demo-app.component';
       { path: 'app-our-new-component', component: OurNewComponentComponent },
       { path: 'gnd', component: GndLobidComponent },
       { path: 'audio', component: AudioPlayerComponent },
-      { path: 'calendar', component: CalendarComponent },
       { path: 'card', component: MatCardComponent }
     ]),
     NgxSliderModule
@@ -237,8 +235,6 @@ import { DemoAppComponent } from './apps/demo-app/demo-app.component';
     CommentOnIndicesComponent,
 
     // DataListViewDetailsDialogComponent,
-    CalendarComponent,
-
     CrisprComponent,
 
     MachineReasoningComponent,

@@ -233,19 +233,6 @@ export class OpenAppsModel {
       initialHeight: '150',
       description: 'https://github.com/nie-ine/inseri/tree/devel/Tutorials/...'
     },
-    calendar: {
-      type: 'calendar',
-      model: [],
-      inputs: [
-        {
-          'inputName': 'calendarData',
-          default: 'this is an app for a calendar'
-        }
-      ],
-      materialIcon: 'calendar_today',
-      initialWidth: '400',
-      initialHeight: '400'
-    },
     jsonEnvironment: { // This is the old name of the now called pythonEnvironment
       type: 'jsonEnvironment',
       model: [],

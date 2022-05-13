@@ -47,7 +47,6 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { QueryInformationDialogComponent } from './page/query-information-dialog/query-information-dialog.component';
 import { MatCardModule } from '@angular/material/card';
 import { ImageFrameModule } from './apps/image-frame/image-frame.module';
-import { ParzivalFassungComponent } from './apps/parzival-fassung/parzival-fassung.component';
 import { ComplexTextViewsModule } from './apps/complex-text-views/complex-text-views.module';
 import { KnoraV2ViewerModule } from './apps/knora-v2-viewer/knora-v2-viewer.module';
 import { OverlayModule } from '@angular/cdk/overlay';
@@ -205,7 +204,6 @@ import { DemoAppComponent } from './apps/demo-app/demo-app.component';
     ResponseTreeAppComponent,
     QueryInformationDialogComponent,
     MinimizePasswordDialog,
-    ParzivalFassungComponent,
     HighlightPipe,
     OpenbisLoginComponent,
     YoutubeVideoComponent,

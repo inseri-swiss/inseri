@@ -106,7 +106,6 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { MatCardComponent } from './apps/mat-card/mat-card.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { DemoAppComponent } from './apps/demo-app/demo-app.component';
 
 @NgModule({
   imports: [
@@ -241,8 +240,6 @@ import { DemoAppComponent } from './apps/demo-app/demo-app.component';
     NestedMenu,
 
     MatCardComponent,
-
-    DemoAppComponent
   ],
   exports: [
     PageComponent,

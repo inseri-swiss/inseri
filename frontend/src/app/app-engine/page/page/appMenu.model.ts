@@ -132,17 +132,6 @@ export class AppMenuModel {
       appGroup: 'visualise'
     },
     // {
-    //   id: 'view_week',
-    //   name: 'Parzival - Fassung',
-    //   tags: 'synopsis, text, version',
-    //   color: 'green',
-    //   status: 'stable',
-    //   appType: 'parzivalFassung',
-    //   description: 'Project specific App for the Parzival Project - Open more than one app of this type to test it!',
-    //   showOnHome: false,
-    //   appGroup: 'visualise'
-    // },
-    // {
     //   id: 'turned_in',
     //   name: 'AVP-Edition',
     //   tags: 'synopsis, text, version',

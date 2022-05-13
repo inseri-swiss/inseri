@@ -774,18 +774,6 @@ export class OpenAppsModel {
       fullWidth: true,
       fullHeight: true
     },
-    parzivalFassung: {
-      type: 'parzivalFassung',
-      model: [],
-      inputs: [
-        {
-          'inputName': 'textJson'
-        }
-      ],
-      materialIcon: 'view_week',
-      initialWidth: '375',
-      initialHeight: '350'
-    },
     avpEditionView: {
       type: 'avpEditionView',
       model: [],

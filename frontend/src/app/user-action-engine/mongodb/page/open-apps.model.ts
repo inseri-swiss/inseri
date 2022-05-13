@@ -86,19 +86,6 @@ export class OpenAppsModel {
       initialWidth: '450',
       initialHeight: '450'
     },
-    ourDemoApp: {
-      type: 'ourDemoApp',
-      model: [],
-      materialIcon: 'short_text',
-      initialWidth: '600',
-      initialHeight: '400',
-      inputs: [
-        {
-          'inputName': 'demoText',
-          default: 'Hi, this is the default text'
-        }
-      ],
-    },
     machineReasoning: {
       type: 'machineReasoning',
       model: [],

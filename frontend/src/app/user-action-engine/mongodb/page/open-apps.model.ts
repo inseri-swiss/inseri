@@ -774,18 +774,6 @@ export class OpenAppsModel {
       fullWidth: true,
       fullHeight: true
     },
-    avpEditionView: {
-      type: 'avpEditionView',
-      model: [],
-      inputs: [
-        {
-          'inputName': 'backendAddress'
-        }
-      ],
-      materialIcon: 'turned_in',
-      initialWidth: '375',
-      initialHeight: '350'
-    },
     svgTranscription: {
       type: 'svgTranscription',
       model: [],

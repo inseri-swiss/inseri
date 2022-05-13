@@ -131,17 +131,6 @@ export class AppMenuModel {
       showOnHome: false,
       appGroup: 'visualise'
     },
-    // {
-    //   id: 'turned_in',
-    //   name: 'AVP-Edition',
-    //   tags: 'synopsis, text, version',
-    //   color: 'orange',
-    //   status: 'under development',
-    //   appType: 'avpEditionView',
-    //   description: 'Project specific App for the AVP Project',
-    //   showOnHome: false,
-    //   appGroup: 'visualise'
-    // },
     {
       id: 'album',
       name: 'OpenBis Login',

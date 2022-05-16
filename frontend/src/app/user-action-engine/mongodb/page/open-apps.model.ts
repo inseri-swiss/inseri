@@ -83,6 +83,15 @@ export class OpenAppsModel {
       description: 'https://github.com/nie-ine/inseri/tree/devel/Tutorials/App ' +
         'descriptions for Researchers/Apps to use microservices/Machine Reasoning/README.md'
     },
+    pyodide: {
+      type: 'pyodide',
+      model: [],
+      materialIcon: 'blur_on',
+      initialWidth: '600',
+      initialHeight: '800',
+      fullWidth: false,
+      description: 'runs python on browser'
+    },
     crispr: {
       type: 'crispr',
       model: [],

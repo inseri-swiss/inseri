@@ -1,0 +1,6 @@
+<div style="display: flex; height: 100%; flex-direction: column;">
+  <button mat-button style="margin-bottom: 1em; border: 2px solid #4300fe"
+  (click)="runCode()" >run code</button>
+  <ace-editor class="url-extension" #editor [mode]="'python'" [(text)]="input" [options]="editor_opt" style="height: 50%;"> </ace-editor>
+  <pre style="margin: 1em 0; flex: 1;">{{output}}</pre>
+</div>

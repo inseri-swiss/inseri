@@ -165,6 +165,10 @@
 
 </app-machine-reasoning>
 
+<app-pyodide *ngIf="app.type === 'pyodide'">
+
+</app-pyodide>
+
 
 <app-bar-chart *ngIf=" app.type === 'barCharts' "
                [initialised] = "app.initialized"

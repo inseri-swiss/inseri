@@ -44,6 +44,17 @@ export class AppMenuModel {
       appGroup: 'microservice'
     },
     {
+      id: 'blur_on',
+      name: 'Pyodide',
+      tags: 'python',
+      color: 'green',
+      status: 'under development',
+      appType: 'pyodide',
+      description: 'Runs python on browser',
+      showOnHome: false,
+      appGroup: 'microservice'
+    },
+    {
       id: 'speaker_notes',
       name: 'Comment App',
       tags: 'comment, browse',

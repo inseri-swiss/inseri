@@ -106,6 +106,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { MatCardComponent } from './apps/mat-card/mat-card.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { PyodideComponent } from './apps/pyodide/pyodide.component';
 
 @NgModule({
   imports: [
@@ -240,6 +241,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     NestedMenu,
 
     MatCardComponent,
+    PyodideComponent,
   ],
   exports: [
     PageComponent,

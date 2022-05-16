@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-pyodide',
@@ -7,13 +7,22 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class PyodideComponent implements OnInit {
 
+  @Input()
+  param1: string = ""
+  @Input()
+  hash: string = ""
+
+  isPending = false
   pyodideWorker: Worker
   output: string = ""
-  input: string = ""
+  input: string =
+`# input 'param1' is available as variable param1
+`
   editor_opt = {fontSize: "12pt"}
   constructor() {}
 
   ngOnInit(): void {
+    this.output = `app hash ${this.hash}`
     this.pyodideWorker = new Worker(new URL('./py.worker', import.meta.url));
 
     this.pyodideWorker.onmessage = (event) => {
@@ -23,14 +32,17 @@ export class PyodideComponent implements OnInit {
         this.output = data?.res + "\n" + this.output
       }
       else {
-        this.output = data?.res
+        this.output = data?.res + "\n" + this.output
       }
+      this.isPending = false
     }
   }
 
   runCode(){
+    this.isPending = true
     this.pyodideWorker.postMessage({
-      python: this.input
+      python: this.input,
+      param1: this.param1
     })
   }
 

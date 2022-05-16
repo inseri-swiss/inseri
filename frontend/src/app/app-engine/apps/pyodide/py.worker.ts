@@ -19,11 +19,13 @@ let pyodideReadyPromise = loadPyodideAndPackages();
 
 self.onmessage = async (event) => {
   await pyodideReadyPromise;
-  const { python, ...context } = event.data;
+  const { python, param1, ...context } = event.data;
 
   for (const key of Object.keys(context)) {
     self[key] = context[key];
   }
+
+  pyodide.globals.set("param1", pyodide.toPy(param1))
 
   try {
     await pyodide.loadPackagesFromImports(python);

@@ -165,7 +165,10 @@
 
 </app-machine-reasoning>
 
-<app-pyodide *ngIf="app.type === 'pyodide'">
+<app-pyodide *ngIf="app.type === 'pyodide'"
+             [param1]="app.param1"
+             [hash]="app.hash"
+>
 
 </app-pyodide>
 

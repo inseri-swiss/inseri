@@ -90,7 +90,10 @@ export class OpenAppsModel {
       initialWidth: '600',
       initialHeight: '800',
       fullWidth: false,
-      description: 'runs python on browser'
+      description: 'runs python on browser',
+      inputs: [
+        { 'inputName': 'param1', default: 'foobar'}
+      ],
     },
     crispr: {
       type: 'crispr',

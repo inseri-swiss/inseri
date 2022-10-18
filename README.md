@@ -1,7 +1,9 @@
 # DISCONTINUED
 
-The ine-nie code base used in inseri.swiss is **discontinued**.  
+The nie-ine codebase used in inseri.swiss is **discontinued**.  
 A new on-going development is integrating inseri.swiss vision into WordPress using the WordPress plugin system - see [inseri-core-wp](https://github.com/inseri-swiss/inseri-core-wp).
+
+For the initial nie-ine codebase please see https://github.com/nie-ine/inseri .
 
 ---
 

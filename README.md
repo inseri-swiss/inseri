@@ -1,3 +1,10 @@
+# DISCONTINUED
+
+The ine-nie code base used in inseri.swiss is **discontinued**.  
+A new on-going development is integrating inseri.swiss vision into WordPress using the WordPress plugin system - see [inseri-core-wp](https://github.com/inseri-swiss/inseri-core-wp).
+
+---
+
 [![CircleCI](https://circleci.com/gh/inseri-swiss/inseri/tree/devel.svg?style=svg)](https://circleci.com/gh/inseri-swiss/inseri/tree/devel)
 
 Our signature presentation for you: [https://inseri.swiss/](https://inseri.swiss/)
